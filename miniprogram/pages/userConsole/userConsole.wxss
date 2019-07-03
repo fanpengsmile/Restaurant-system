@@ -1,3 +1,14 @@
 /* pages/userConsole/userConsole.wxss */
 
 @import "../../style/guide.wxss";
+.ordertitle {
+  display: inline-block;
+  text-align: left;
+  width:50%;
+  background-color: gray;
+}
+.ordernum {
+   width:50%;
+   display: inline-block;
+   text-align: right;
+}

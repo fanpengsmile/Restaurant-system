@@ -1,22 +1,22 @@
-<!--pages/userConsole/userConsole.wxml-->
-<view class="container">
-
-  <view class="list">
-    <view class="list-item" bindtap="testCgi">
-      <text class="request-text">用户 openid 获取成功</text>
+<!-- <van-notice-bar left-icon="hot" text="本店已更新美味蟹黄包，快来蟹堡王，欢迎品尝---海绵宝宝" /> -->
+<van-tabs sticky active="{{ active }}" swipeable>
+<view wx:for="{{model}}" wx:key="{{index}}">
+  <van-tab style="display:left" title="{{item.title}}">
+  <view wx:for="{{item.detail}}" wx:key="{{index}}">
+    <van-card tag="{{item.tag}}" price="{{item.price}}" desc="{{item.desc}}" title="{{item.name}}" thumb="{{ item.image }}">
+      <view slot="footer">
+        <van-stepper value="{{ item.num }}" integer min="0" step="1" bind:change="onSlotChange" data-name="{{item.name}}" data-price="{{item.price}}" data-id="{{item.id}}" />
+      </view>
+    </van-card>
     </view>
-    <view class="list-item" bindtap="testCgi">
-      <text class="request-text">{{openid}}</text>
-    </view>
-  </view>
-
-  <!-- 云开发用户管理指引 -->
-  <view class="guide">
-    <text class="headline">云开发管理用户</text>
-    <text class="p">1. 打开云开发控制台</text>
-    <image class="image1" src="../../images/console-entrance.png" mode="aspectFit"></image>
-    <text class="p">2. 切换到 "用户管理" 标签页</text>
-    <text class="p">3. 查看访问小程序的用户列表</text>
-  </view>
-
+  </van-tab>
 </view>
+</van-tabs>
+<van-popup bind:close="updateoderlist" overlay="true" safe-area-inset-top="true" custom-style="bottom:50rpx;" position="bottom" show="{{ showsubmitlist }}" close-on-click-overlay="true">
+  <van-cell style="text-align:left;" title="订单详情" />
+  <view wx:if="{{showsubmitlist}}" wx:for="{{userorderlist}}" wx:key="{{index}}">
+    <van-cell class="ordertitle" title="{{item.name}}" />
+    <van-stepper class="ordernum" value="{{ item.num }}" integer min="0" step="1" bind:change="onSlotChange" data-name="{{item.name}}" data-price="{{item.price}}" data-id="{{item.id}}" />
+  </view>
+</van-popup>
+<van-submit-bar catchtap="showorderlist" safe-area-inset-bottom="false" wx:if="{{showsubmit}}" price="{{pricesum}}" button-text="提交订单" bind:submit="onSubmit" style="pandding-bottom:0;margin:1rpx soild black" />

@@ -1,51 +1,65 @@
 <!--index.wxml-->
 <view class="container">
-
   <!-- 用户 openid -->
-  <view class="userinfo">
-    <button 
-      open-type="getUserInfo" 
-      bindgetuserinfo="onGetUserInfo"
-      class="userinfo-avatar"
-      style="background-image: url({{avatarUrl}})"
-    ></button>
-    <view>
-      <button class="userinfo-nickname" bindtap="onGetOpenid">点击获取 openid</button>
-    </view>
-  </view>
-
-
-  <!-- 上传图片 -->
-  <view class="uploader">
-    <view class="uploader-text" bindtap="doUpload">
-      <text>上传图片</text>
-    </view>
-    <view class="uploader-container" wx:if="{{imgUrl}}">
-      <image class="uploader-image" src="{{imgUrl}}" mode="aspectFit" bindtap="previewImg"></image>
-    </view>
-  </view>
-
-
-  <!-- 操作数据库 -->
-  <view class="uploader">
-    <navigator url="../databaseGuide/databaseGuide" open-type="navigate" class="uploader-text">
-      <text>前端操作数据库</text>
-    </navigator>
-  </view>
-
-  <!-- 新建云函数 -->
-  <view class="uploader">
-    <navigator url="../addFunction/addFunction" open-type="navigate" class="uploader-text">
-      <text>快速新建云函数</text>
-    </navigator>
-  </view>
-
-  <!-- 云调用 -->
-  <view class="uploader">
-    <navigator url="../openapi/openapi" open-type="navigate" class="uploader-text">
-      <text>云调用</text>
-    </navigator>
-  </view>
-
-
+  <image class="userimg" src="{{avatarUrl}}"></image>
+  <text wx:if="{{username}}" style="color:#666">{{username}}</text>
+  <van-button wx:if="{{!username}}" plain type="danger" size="mini" open-type="getUserInfo" bindgetuserinfo="onGetUserInfo">登录</van-button>
 </view>
+<view wx:if="{{user}}">
+  <view wx:if="{{username}}">
+    <van-cell title="我的积分" value="{{integral }}" />
+    <van-cell wx:if="{{showorder}}" catchtap="showorder" title="我的订单" is-link value="点击查看" />
+    <van-cell wx:if="{{!showorder}}" catchtap="hideorder" title="我的订单" is-link value="查看所有" arrow-direction="down" />
+    <view wx:if="{{!showorder}}">
+      <van-cell class="ordertitle" title="订单" />
+      <van-cell class="ordertitle" title="时间" />
+      <van-cell class="ordertitle" title="价格" />
+    </view>
+
+    <view class="userorder" wx:for="{{userorder}}" wx:key="{{index}}">
+      <view catchtap="showorderdetail" wx:if="{{!showorder}}" data-index="{{item.index}}">
+        <van-cell class="ordertitle" title="{{item.index}}" />
+        <van-cell class="ordertitle" title="{{item.time}}" />
+        <van-cell class="ordertitle" title="{{item.price}}" />
+      </view>
+    </view>
+    <van-popup custom-style="max-height:800rpx" show="{{ show }}" bind:close="onClose" position="bottom" safe-area-inset-top="true" overlay="true">
+      <van-cell icon="balance-list" title="订单号" value="{{orderdetail.index}}" />
+      <van-cell icon="clock"  title="时间" value="{{orderdetail.time}}" />
+      <van-cell icon="gold-coin" title="价格" value="{{orderdetail.price}}" />
+      <van-cell icon="goods-collect"  title="积分" value="{{orderdetail.integral}}" />
+      <view wx:for="{{orderdetail.model}}" wx:key='{{index}}'>
+        <van-cell icon="shop-collect" title="{{item.name}}" value="{{item.price}}" size="large" />
+      </view>
+    </van-popup>
+  </view>
+</view>
+<view wx:if="{{!user}}">
+<van-cell title="今日收入" value="{{incomeday}}" />
+<van-cell title="总收入" value="{{incomeall}}" />
+<van-cell wx:if="{{showallorder}}" catchtap="showallorder" title="所有订单" is-link value="点击查看" />
+<van-cell wx:if="{{!showallorder}}" catchtap="hideallorder" title="所有订单" is-link value="查看所有" arrow-direction="down" />
+<view wx:if="{{!showallorder}}">
+      <van-cell class="ordertitle" title="订单" />
+      <van-cell class="ordertitle" title="时间" />
+      <van-cell class="ordertitle" title="价格" />
+    </view>
+
+    <view class="userorder" wx:for="{{allorder}}" wx:key="{{index}}">
+      <view catchtap="showallorderdetail" wx:if="{{!showallorder}}" data-index="{{item.index}}">
+        <van-cell class="ordertitle" title="{{item.index}}" />
+        <van-cell class="ordertitle" title="{{item.time}}" />
+        <van-cell class="ordertitle" title="{{item.price}}" />
+      </view>
+    </view>
+    <van-popup custom-style="max-height:800rpx" show="{{ showall }}" bind:close="onClose" position="bottom" safe-area-inset-top="true" overlay="true">
+      <van-cell icon="balance-list"  title="订单号" value="{{allorderdetail.index}}" />
+      <van-cell icon="clock"  title="时间" value="{{allorderdetail.time}}" />
+      <van-cell icon="gold-coin"  title="价格" value="{{allorderdetail.price}}" />
+      <van-cell icon="goods-collect"  title="积分" value="{{allorderdetail.integral}}" />
+      <view wx:for="{{allorderdetail.model}}" wx:key='{{index}}'>
+        <van-cell icon="shop-collect" title="{{item.name}}" value="{{item.price}}" size="large" />
+      </view>
+    </van-popup>
+</view>
+<van-dialog id="van-dialog" />

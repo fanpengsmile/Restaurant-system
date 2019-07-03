@@ -1,4 +1,5 @@
 //index.js
+import Dialog from 'vant-weapp/dist/dialog/dialog';
 const app = getApp()
 
 Page({
@@ -7,16 +8,26 @@ Page({
     userInfo: {},
     logged: false,
     takeSession: false,
-    requestResult: ''
+    requestResult: '',
+    username:"",
+    userorder:[],
+    showorder: true,
+    integral :0,
+    orderdetail:{},
+    show: false,
+    showall: false,
+    showallorder: true,
+    allorder:[],
+    allorderdetail: {},
+    user:false,
+    incomeday:0,
+    incomeall:0
   },
 
   onLoad: function() {
-    if (!wx.cloud) {
-      wx.redirectTo({
-        url: '../chooseLib/chooseLib',
-      })
-      return
-    }
+    wx.showLoading({
+      title: 'Loading',
+    });
 
     // 获取用户信息
     wx.getSetting({
@@ -27,94 +38,155 @@ Page({
             success: res => {
               this.setData({
                 avatarUrl: res.userInfo.avatarUrl,
-                userInfo: res.userInfo
-              })
+                userInfo: res.userInfo,
+                username: JSON.parse(res.rawData).nickName
+              });
+              wx.hideLoading();
             }
           })
+        } else {
+          wx.hideLoading();
+          Dialog.alert({
+            message: '请先登录'
+          }).then(() => {
+            wx.navigateTo({
+              url: '/pages/index/index',
+            })
+          });
+          
         }
+      },
+      fail: err => {
+        wx.hideLoading();
+        Dialog.alert({
+          message: '加载失败'
+        }).then(() => {
+          return;
+        });
       }
     })
   },
 
   onGetUserInfo: function(e) {
+    wx.showLoading({
+      title: 'Loading',
+    });
     if (!this.logged && e.detail.userInfo) {
       this.setData({
         logged: true,
         avatarUrl: e.detail.userInfo.avatarUrl,
-        userInfo: e.detail.userInfo
+        userInfo: e.detail.userInfo,
+        username: e.detail.userInfo.nickName
+      })
+    }
+    wx.hideLoading();
+  },
+  showallorder: function () {
+    //todo
+    let order = [{
+      time: "2019-08",
+      index: 12,
+      price: 21,
+      model: "apple"
+    },
+    {
+      time: "2018-08",
+      index: 17,
+      price: 288,
+      model: "noodel"
+    }];
+    this.setData({
+      showallorder: false,
+      allorder: order
+    });
+  },
+  showorder: function() {
+    //todo
+    let order = [{
+      time: "2019-08",
+      index: 12,
+      price: 21,
+      model: "apple"
+    },
+    {
+      time: "2018-08",
+      index: 17,
+      price: 288,
+      model: "noodel"
+    }];
+    this.setData({
+      showorder: false,
+      userorder: order
+    });
+  },
+  hideorder:function(){
+    this.setData({
+      showorder: true
+    });
+  },
+  hideallorder: function () {
+    this.setData({
+      showallorder: true
+    });
+  },
+  showorderdetail:function(){
+    //todo
+    this.setData({
+      show: !this.data.show
+    });
+    if (this.data.show){
+      let detail = {
+        time: '2019/08/01',
+        integral: 10,
+        price: 20,
+        index: "153469854521",
+        model: [{
+          name:'apple',
+          price:12
+        }, {
+            name: 'meat',
+            price: 145
+          },
+          {
+            name: 'banana',
+            price: 132
+          }]
+      };
+      this.setData({
+        orderdetail: detail,
       })
     }
   },
-
-  onGetOpenid: function() {
-    // 调用云函数
-    wx.cloud.callFunction({
-      name: 'login',
-      data: {},
-      success: res => {
-        console.log('[云函数] [login] user openid: ', res.result.openid)
-        app.globalData.openid = res.result.openid
-        wx.navigateTo({
-          url: '../userConsole/userConsole',
-        })
-      },
-      fail: err => {
-        console.error('[云函数] [login] 调用失败', err)
-        wx.navigateTo({
-          url: '../deployFunctions/deployFunctions',
-        })
-      }
-    })
+  onClose() {
+    this.setData({ show: false,showall:false });
   },
-
-  // 上传图片
-  doUpload: function () {
-    // 选择图片
-    wx.chooseImage({
-      count: 1,
-      sizeType: ['compressed'],
-      sourceType: ['album', 'camera'],
-      success: function (res) {
-
-        wx.showLoading({
-          title: '上传中',
-        })
-
-        const filePath = res.tempFilePaths[0]
-        
-        // 上传图片
-        const cloudPath = 'my-image' + filePath.match(/\.[^.]+?$/)[0]
-        wx.cloud.uploadFile({
-          cloudPath,
-          filePath,
-          success: res => {
-            console.log('[上传文件] 成功：', res)
-
-            app.globalData.fileID = res.fileID
-            app.globalData.cloudPath = cloudPath
-            app.globalData.imagePath = filePath
-            
-            wx.navigateTo({
-              url: '../storageConsole/storageConsole'
-            })
-          },
-          fail: e => {
-            console.error('[上传文件] 失败：', e)
-            wx.showToast({
-              icon: 'none',
-              title: '上传失败',
-            })
-          },
-          complete: () => {
-            wx.hideLoading()
-          }
-        })
-
-      },
-      fail: e => {
-        console.error(e)
-      }
-    })
-  },
+  showallorderdetail: function () {
+    //todo
+    this.setData({
+      showall: !this.data.showall
+    });
+    if (this.data.showall) {
+      let detail = {
+        time: '2019/08/01',
+        integral: 10,
+        price: 20,
+        index: "153469854521",
+        model: [{
+          name: 'apple',
+          price: 12
+        }, {
+          name: 'meat',
+          price: 145
+        },
+        {
+          name: 'banana',
+          price: 132
+        }]
+      };
+      this.setData({
+        allorderdetail: detail,
+      })
+    }
+  }
 
 })
