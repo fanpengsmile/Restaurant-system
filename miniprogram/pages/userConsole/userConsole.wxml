@@ -20,3 +20,4 @@
   </view>
 </van-popup>
 <van-submit-bar catchtap="showorderlist" safe-area-inset-bottom="false" wx:if="{{showsubmit}}" price="{{pricesum}}" button-text="提交订单" bind:submit="onSubmit" style="pandding-bottom:0;margin:1rpx soild black" />
+<van-dialog id="van-dialog" />

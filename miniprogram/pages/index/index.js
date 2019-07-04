@@ -19,52 +19,12 @@ Page({
     showallorder: true,
     allorder:[],
     allorderdetail: {},
-    user:false,
+    user:null,
     incomeday:0,
     incomeall:0
   },
 
   onLoad: function() {
-    wx.showLoading({
-      title: 'Loading',
-    });
-
-    // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              this.setData({
-                avatarUrl: res.userInfo.avatarUrl,
-                userInfo: res.userInfo,
-                username: JSON.parse(res.rawData).nickName
-              });
-              wx.hideLoading();
-            }
-          })
-        } else {
-          wx.hideLoading();
-          Dialog.alert({
-            message: '请先登录'
-          }).then(() => {
-            wx.navigateTo({
-              url: '/pages/index/index',
-            })
-          });
-          
-        }
-      },
-      fail: err => {
-        wx.hideLoading();
-        Dialog.alert({
-          message: '加载失败'
-        }).then(() => {
-          return;
-        });
-      }
-    })
   },
 
   onGetUserInfo: function(e) {
@@ -76,7 +36,8 @@ Page({
         logged: true,
         avatarUrl: e.detail.userInfo.avatarUrl,
         userInfo: e.detail.userInfo,
-        username: e.detail.userInfo.nickName
+        username: e.detail.userInfo.nickName,
+        user: app.userInfo.openid !== "o3ikC5dvBW-FeITuFXcoXoQHirV8" ? true : false
       })
     }
     wx.hideLoading();

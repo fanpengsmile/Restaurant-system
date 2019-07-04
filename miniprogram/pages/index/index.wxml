@@ -5,7 +5,7 @@
   <text wx:if="{{username}}" style="color:#666">{{username}}</text>
   <van-button wx:if="{{!username}}" plain type="danger" size="mini" open-type="getUserInfo" bindgetuserinfo="onGetUserInfo">登录</van-button>
 </view>
-<view wx:if="{{user}}">
+<view wx:if="{{user === true}}">
   <view wx:if="{{username}}">
     <van-cell title="我的积分" value="{{integral }}" />
     <van-cell wx:if="{{showorder}}" catchtap="showorder" title="我的订单" is-link value="点击查看" />
@@ -34,9 +34,11 @@
     </van-popup>
   </view>
 </view>
-<view wx:if="{{!user}}">
+<view wx:if="{{user === false}}">
 <van-cell title="今日收入" value="{{incomeday}}" />
 <van-cell title="总收入" value="{{incomeall}}" />
+<van-cell title="订单管理" is-link value="点击查看所有订单"/>
+<van-cell title="商品管理" is-link value="点击添加删除商品"/>
 <van-cell wx:if="{{showallorder}}" catchtap="showallorder" title="所有订单" is-link value="点击查看" />
 <van-cell wx:if="{{!showallorder}}" catchtap="hideallorder" title="所有订单" is-link value="查看所有" arrow-direction="down" />
 <view wx:if="{{!showallorder}}">
@@ -62,4 +64,5 @@
       </view>
     </van-popup>
 </view>
+<van-cell wx:if="{{user === null}}" title="登录享受更多特权" icon="friends-o" value="点击登录按钮" />
 <van-dialog id="van-dialog" />

@@ -1,4 +1,5 @@
 // pages/userConsole/userConsole.js
+import Dialog from 'vant-weapp/dist/dialog/dialog';
 Page({
 
   data: {
@@ -50,7 +51,42 @@ Page({
   },
 
   onLoad: function (options) {
-    
+    // 获取用户信息
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+          wx.getUserInfo({
+            success: res => {
+              this.setData({
+                avatarUrl: res.userInfo.avatarUrl,
+                userInfo: res.userInfo,
+                username: JSON.parse(res.rawData).nickName
+              });
+              wx.hideLoading();
+            }
+          })
+        } else {
+          wx.hideLoading();
+          Dialog.alert({
+            message: '请先登录'
+          }).then(() => {
+            wx.switchTab({
+              url: '/pages/index/index',
+            })
+          });
+
+        }
+      },
+      fail: err => {
+        wx.hideLoading();
+        Dialog.alert({
+          message: '加载失败'
+        }).then(() => {
+          return;
+        });
+      }
+    })
   },
   onShow:function(){
   },

@@ -13,6 +13,7 @@
       "van-tabs": "vant-weapp/dist/tabs/index",
       "van-button": "vant-weapp/dist/button/index",
       "van-popup": "vant-weapp/dist/popup/index",
-      "van-cell": "vant-weapp/dist/cell/index"
+      "van-cell": "vant-weapp/dist/cell/index",
+      "van-dialog": "vant-weapp/dist/dialog/index"
   }
 }
