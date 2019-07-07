@@ -12,3 +12,19 @@
    display: inline-block;
    text-align: right;
 }
+.commodList {
+  background-color:red;
+  width:100%;
+  margin-top: 40rpx;
+}
+
+.hotCommodityImage {
+  width: 100%;
+  height: 100%;
+}
+
+.hotCommodity {
+  margin-bottom: 10rpx;
+  margin-left: 35rpx;
+  margin-right: 35rpx;
+}

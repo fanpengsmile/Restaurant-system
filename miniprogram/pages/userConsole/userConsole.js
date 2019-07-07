@@ -4,53 +4,256 @@ Page({
 
   data: {
     openid: '',
-    showsubmit:false,
-    pricesum:0,
-    userorderlist:[],
-    showsubmitlist:false,
-    model:[{
-      title:"水果",
-      detail:[{id: "465",image: "/images/a.png",tag:"新品",price:43,desc:'多吃水果心情好！！！！！！！！！！！',num: 0,name:"橘子"},
-        { id: "46dafda5", image: "/images/a.png", tag: "新品", price: 828, desc: '多吃水果心情好！！！！！！！！！！！', num: 0,name: "西瓜"},
-        { id: "4er65", image: "/images/a.png", tag: "新品", price: 145, desc: '多吃水果心情好！！！！！！！！！！！', num: 0,name: "葡萄"}
-      ]
-    }, {
+    showsubmit: false,
+    pricesum: 0,
+    userorderlist: [],
+    showsubmitlist: false,
+    submitText: '提交订单',
+    hotCommodity: ['/images/1.jpg', '/images/2.jpg', '/images/3.jpg', '/images/4.jpg', '/images/5.jpg'],
+    model: [{
+        title: "水果",
+        detail: [{
+            id: "465",
+            image: "/images/a.png",
+            tag: "新品",
+            price: 43,
+            desc: '多吃水果心情好！！！！！！！！！！！',
+            num: 0,
+            name: "橘子"
+          },
+          {
+            id: "46da567456fda5",
+            image: "/images/a.png",
+            tag: "新品",
+            price: 828,
+            desc: '多吃水果心情好！！！！！！！！！！！',
+            num: 0,
+            name: "西瓜"
+          },
+          {
+            id: "4rewer65",
+            image: "/images/a.png",
+            tag: "新品",
+            price: 145,
+            desc: '多吃水果心情好！！！！！！！！！！！',
+            num: 0,
+            name: "葡萄"
+          },
+          {
+            id: "4eerwwerwr65",
+            image: "/images/a.png",
+            tag: "新品",
+            price: 145,
+            desc: '多吃水果心情好！！！！！！！！！！！',
+            num: 0,
+            name: "葡萄"
+          }, {
+            id: "4etrethgr65",
+            image: "/images/a.png",
+            tag: "新品",
+            price: 145,
+            desc: '多吃水果心情好！！！！！！！！！！！',
+            num: 0,
+            name: "葡萄"
+          }, {
+            id: "4ery6765",
+            image: "/images/a.png",
+            tag: "新品",
+            price: 145,
+            desc: '多吃水果心情好！！！！！！！！！！！',
+            num: 0,
+            name: "葡萄"
+          }
+        ]
+      }, {
         title: "零食",
-        detail: [{ id: "462525", image: "/images/a.png", tag: "新品", price: 43, desc: '多吃水果心情好！！！！！！', num: 0, name: "坚果"},
-          { id: "46da27527fda5", image: "/images/b.png", tag: "新品", price: 828, desc: '多吃水果心情好！！！！！！！！！！！', num: 0, name: "火腿肠" },
-          { id: "4e5275275r65", image: "/images/c.png", tag: "新品", price: 145, desc: '多吃水果心情好！！！！！！！！！！！', num: 0, name: "奶茶"}
+        detail: [{
+            id: "462525",
+            image: "/images/a.png",
+            tag: "新品",
+            price: 43,
+            desc: '多吃水果心情好！！！！！！',
+            num: 0,
+            name: "坚果"
+          },
+          {
+            id: "46da27527fda5",
+            image: "/images/b.png",
+            tag: "新品",
+            price: 828,
+            desc: '多吃水果心情好！！！！！！！！！！！',
+            num: 0,
+            name: "火腿肠"
+          },
+          {
+            id: "4e5275275r65",
+            image: "/images/c.png",
+            tag: "新品",
+            price: 145,
+            desc: '多吃水果心情好！！！！！！！！！！！',
+            num: 0,
+            name: "奶茶"
+          }, {
+            id: "4e52we75275r65",
+            image: "/images/c.png",
+            tag: "新品",
+            price: 145,
+            desc: '多吃水果心情好！！！！！！！！！！！',
+            num: 0,
+            name: "奶茶"
+          }, {
+            id: "4e52e75275r65",
+            image: "/images/c.png",
+            tag: "新品",
+            price: 145,
+            desc: '多吃水果心情好！！！！！！！！！！！',
+            num: 0,
+            name: "奶茶"
+          }, {
+            id: "4e75r65",
+            image: "/images/c.png",
+            tag: "新品",
+            price: 145,
+            desc: '多吃水果心情好！！！！！！！！！！！',
+            num: 0,
+            name: "奶茶"
+          }, {
+            id: "4",
+            image: "/images/c.png",
+            tag: "新品",
+            price: 145,
+            desc: '多吃水果心情好！！！！！！！！！！！',
+            num: 0,
+            name: "奶茶"
+          }
         ]
       }, {
         title: "饮料",
-        detail: [{ id: "46s2525", image: "/images/a.png", tag: "新品", price: 43, desc: '多吃水果心情好！！！！！！', num: 0, name: "可乐"},
-          { id: "4455d27fda5", image: "/images/b.png", tag: "新品", price: 28, desc: '多吃水果心情好！！！！！！！！！！！', num: 0, name: "芬达"},
-          { id: "4eqqq5r65", image: "/images/c.png", tag: "新品", price: 14, desc: '多吃水果心情好！！！！！！！！！！！', num: 0, name: "王老吉" }
+        detail: [{
+            id: "46s2525",
+            image: "/images/a.png",
+            tag: "新品",
+            price: 43,
+            desc: '多吃水果心情好！！！！！！',
+            num: 0,
+            name: "可乐"
+          },
+          {
+            id: "4455d27fda5",
+            image: "/images/b.png",
+            tag: "新品",
+            price: 28,
+            desc: '多吃水果心情好！！！！！！！！！！！',
+            num: 0,
+            name: "芬达"
+          },
+          {
+            id: "4eqqq5r65",
+            image: "/images/c.png",
+            tag: "新品",
+            price: 14,
+            desc: '多吃水果心情好！！！！！！！！！！！',
+            num: 0,
+            name: "王老吉"
+          }
         ]
       }, {
         title: "啤酒",
-        detail: [{ id: "45", image: "/images/a.png", tag: "新品", price: 43, desc: '多吃水果心情好！！！！！！', num: 0, name: "青岛" },
-          { id: "445a5", image: "/images/b.png", tag: "新品", price: 28, desc: '多吃水果心情好！！！！！！！！！！！', num: 0, name: "雪花"},
-          { id: "4eqqq5", image: "/images/c.png", tag: "新品", price: 14, desc: '多吃水果心情好！！！！！！！！！！！', num: 0, name: "乌苏" }
+        detail: [{
+            id: "45",
+            image: "/images/a.png",
+            tag: "新品",
+            price: 43,
+            desc: '多吃水果心情好！！！！！！',
+            num: 0,
+            name: "青岛"
+          },
+          {
+            id: "445a5",
+            image: "/images/b.png",
+            tag: "新品",
+            price: 28,
+            desc: '多吃水果心情好！！！！！！！！！！！',
+            num: 0,
+            name: "雪花"
+          },
+          {
+            id: "4eqqq5",
+            image: "/images/c.png",
+            tag: "新品",
+            price: 14,
+            desc: '多吃水果心情好！！！！！！！！！！！',
+            num: 0,
+            name: "乌苏"
+          }
         ]
       },
       {
         title: "烤肉",
-        detail: [{ id: "4rty5", image: "/images/a.png", tag: "新品", price: 43, desc: '多吃水果心情好！！！！！！', num: 0, name: "面筋" },
-          { id: "4455de", image: "/images/b.png", tag: "新品", price: 28, desc: '多吃水果心情好！！！！！！！！！！！', num: 0, name: "香肠"},
-          { id: "sss5", image: "/images/c.png", tag: "新品", price: 14, desc: '多吃水果心情好！！！！！！！！！！！', num: 0, name: "茄子" }
+        detail: [{
+            id: "4rty5",
+            image: "/images/a.png",
+            tag: "新品",
+            price: 43,
+            desc: '多吃水果心情好！！！！！！',
+            num: 0,
+            name: "面筋"
+          },
+          {
+            id: "4455de",
+            image: "/images/b.png",
+            tag: "新品",
+            price: 28,
+            desc: '多吃水果心情好！！！！！！！！！！！',
+            num: 0,
+            name: "香肠"
+          },
+          {
+            id: "sss5",
+            image: "/images/c.png",
+            tag: "新品",
+            price: 14,
+            desc: '多吃水果心情好！！！！！！！！！！！',
+            num: 0,
+            name: "茄子"
+          }
         ]
       },
       {
         title: "其他",
-        detail: [{ id: "f5", image: "/images/a.png", tag: "新品", price: 43, desc: '多吃水果心情好！！！！！！', num: 0, name: "KTV"},
-          { id: "448", image: "/images/b.png", tag: "新品", price: 28, desc: '多吃水果心情好！！！！！！！！！！！', num: 0, name: "台球"},
-          { id: "4aaa5", image: "/images/c.png", tag: "新品", price: 14, desc: '多吃水果心情好！！！！！！！！！！！', num: 0, name: "XBOX"}
+        detail: [{
+            id: "f5",
+            image: "/images/a.png",
+            tag: "新品",
+            price: 43,
+            desc: '多吃水果心情好！！！！！！',
+            num: 0,
+            name: "KTV"
+          },
+          {
+            id: "448",
+            image: "/images/b.png",
+            tag: "新品",
+            price: 28,
+            desc: '多吃水果心情好！！！！！！！！！！！',
+            num: 0,
+            name: "台球"
+          },
+          {
+            id: "4aaa5",
+            image: "/images/c.png",
+            tag: "新品",
+            price: 14,
+            desc: '多吃水果心情好！！！！！！！！！！！',
+            num: 0,
+            name: "XBOX"
+          }
         ]
       }
     ]
   },
 
-  onLoad: function (options) {
+  onLoad: function(options) {
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -77,95 +280,124 @@ Page({
           });
 
         }
-      },
-      fail: err => {
-        wx.hideLoading();
-        Dialog.alert({
-          message: '加载失败'
-        }).then(() => {
-          return;
-        });
       }
     })
   },
-  onShow:function(){
-  },
-  onSlotChange:function(e){
-    let userorderlist = this.data.userorderlist;
-    let differentorder = true;
-    for (let i = 0;i < userorderlist.length;i ++) {
-      if (userorderlist[i].id === e.target.dataset.id) {
-        if (e.detail === 0) {
-          userorderlist.splice(i, 1);
-          differentorder = false;
-          break;
-        }else {
-          userorderlist[i].num = e.detail;
-          differentorder = false;
-          break;
+  onShow: function() {},
+  onSlotChange: function(e) {
+    let model = this.data.model;
+    let peiceNum = 0;
+    for (let i=0;i<model.length;i++){
+      for (let j = 0;j<model[i].detail.length;j++){
+        let mod = model[i].detail[j];
+        if (mod.id === e.target.dataset.id) {
+          mod.num = e.detail;
+        }
+        if (e.detail > 0) {
+          peiceNum += mod.num * mod.price;
         }
       }
     }
-    let newlist = {
-      name: e.target.dataset.name,
-      num: e.detail,
-      id: e.target.dataset.id,
-      price: e.target.dataset.price
-    };
-    if (differentorder) {
-      userorderlist.push(newlist);
+    if (peiceNum >0) {
       this.setData({
-        userorderlist: userorderlist
-      });
-    }
-    let sum = 0;
-    for (let i = 0; i < userorderlist.length; i++) {
-      sum = sum + userorderlist[i].price * userorderlist[i].num;
-    }
-    if (sum > 0) {
-      this.setData({
-        userorderlist: userorderlist,
         showsubmit: true,
-        pricesum: sum
+        pricesum: peiceNum
       })
-    } else {
+    }else{
       this.setData({
-        showsubmit: false,
-        showsubmitlist: false
+        showsubmit: false
       })
     }
   },
-  showorderlist: function(){
+  showorderlist: function(e) {
     let userorderlist = this.data.userorderlist;
     this.setData({
       userorderlist: userorderlist
     });
     this.setData({
-      showsubmitlist: !this.data.showsubmitlist
+      showsubmitlist: true
     });
   },
-  updateoderlist:function(){
-    let userorderlist = this.data.userorderlist;
+  updateoderlist: function() {
+    let orderList = this.data.userorderlist;
     let model = this.data.model;
-    let brea = false;
-    for (let i = 0; i < userorderlist.length;i++){
-      for (let j = 0; j < model.length;j++){
-        if (brea) {
-          brea = false;
-          break;
-        }
-        for (let k = 0; k < model[j].detail.length;k++){
-          if (userorderlist[i].id === model[j].detail[k].id) {
-            model[j].detail[k].num = userorderlist[i].num;
-            brea = true;
-            break;
+    for (let i = 0; i < model.length; i++) {
+      for (let j = 0; j < model[i].detail.length; j++) {
+        let mod = model[i].detail[j];
+        if (orderList.length === 0){
+          mod.num = 0;
+        } else {
+          let flag = false;
+          for (let k = 0; k < orderList.length;k++){
+            if (orderList[k].id === mod.id) {
+              mod.num = orderList[k].num;
+              flag = true;
+              break;
+            }
+          }
+          if (flag === false) {
+            mod.num = 0;
           }
         }
       }
     }
     this.setData({
+      showsubmitlist: false,
       model:model,
-      showsubmitlist: false
+      submitText: '提交订单'
     });
+  },
+  onSubmitSlotChange:function(e) {
+    let orderList = this.data.userorderlist;
+    let sum = 0;
+    for (let i = orderList.length-1; i >=0; i--) {
+        if (orderList[i].id === e.target.dataset.id){
+          if (e.detail === 0) {
+            orderList.splice(i, 1);
+          } else {
+            orderList[i].num = e.detail;
+          }
+          break;
+        }
+    }
+    for (let i = orderList.length - 1; i >= 0; i--) {
+      sum += orderList[i].num * orderList[i].price
+    }
+    if (orderList.length === 0) {
+      this.setData({
+        showsubmit: false
+      })
+      this.updateoderlist();
+    }
+  this.setData({
+    userorderlist: orderList,
+    pricesum: sum
+  })
+  },
+  onSubmit: function(e) {
+    if (!this.data.showsubmitlist){
+      let userorderlist = [];
+      let model = this.data.model;
+      for (let i = 0; i < model.length; i++) {
+        for (let j = 0; j < model[i].detail.length; j++) {
+          let mod = model[i].detail[j];
+          if (mod.num > 0) {
+            userorderlist.push({
+              id: mod.id,
+              name: mod.name,
+              price: mod.price,
+              num: mod.num
+            });
+          }
+        }
+      }
+      this.setData({
+        userorderlist: userorderlist,
+        showsubmitlist: true,
+        submitText: '确认提交'
+      })
+    }else{
+      console.log("daifukuan")
+    }
   }
 })

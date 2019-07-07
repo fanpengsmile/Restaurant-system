@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "用户管理指引",
+  "navigationBarTitleText": "小蓝coffee",
   "usingComponents": {
     "van-row": "vant-weapp/dist/row/index",
     "van-col": "vant-weapp/dist/col/index",

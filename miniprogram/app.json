@@ -1,7 +1,9 @@
 {
   "pages": [
     "pages/userConsole/userConsole",
-    "pages/index/index"
+    "pages/index/index",
+    "pages/order/order",
+    "pages/commodity/commodity"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

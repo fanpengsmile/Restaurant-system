@@ -1,7 +1,7 @@
 //index.js
 import Dialog from 'vant-weapp/dist/dialog/dialog';
 const app = getApp()
-
+const db = wx.cloud.database();
 Page({
   data: {
     avatarUrl: './user-unlogin.png',
@@ -9,7 +9,7 @@ Page({
     logged: false,
     takeSession: false,
     requestResult: '',
-    username:"",
+    userName:"",
     userorder:[],
     showorder: true,
     integral :0,
@@ -19,12 +19,23 @@ Page({
     showallorder: true,
     allorder:[],
     allorderdetail: {},
-    user:null,
+    userType:null,
     incomeday:0,
     incomeall:0
   },
 
   onLoad: function() {
+    db.collection('bulecoffeeuser').where({
+      _openid: app.userInfo._openid
+    }).get().then(res => {
+      this.setData({
+        avatarUrl: res.data[0].avatarUrl,
+        userType: res.data[0].userType,
+        userName: res.data[0].userName
+      });
+    }).catch(err => {
+      console.log(err)
+    })
   },
 
   onGetUserInfo: function(e) {
