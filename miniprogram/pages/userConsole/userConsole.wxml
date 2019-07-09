@@ -1,5 +1,6 @@
-<!-- <van-notice-bar left-icon="hot" text="本店已更新美味蟹黄包，快来蟹堡王，欢迎品尝---海绵宝宝" /> -->
-<view class="hotCommodity">
+<van-transition show="{{ hotCommodShow }}" duration="{{ { enter: 300, leave: 1000 } }}" name="fade-down" custom-class="block">
+  <view wx:if="{{hotCommodShow}}" class="hotCommodity">
+  <van-notice-bar left-icon="hot" text="本店已更新美味蟹黄包，快来蟹堡王，欢迎品尝---海绵宝宝" />
   <swiper indicator-dots="false" autoplay="true" interval="5000" duration="2000">
     <block wx:for="{{hotCommodity}}" wx:key="{{index}}">
       <swiper-item class="hotCommodityItem">
@@ -8,8 +9,9 @@
     </block>
   </swiper>
 </view>
+</van-transition>
 <view>
-  <van-tabs sticky active="{{ active }}" swipeable type="card" style="backgroun-color:white;z-index:100">
+  <van-tabs sticky active="{{ active }}" swipeable type="card" style="backgroun-color:white;z-index:100" bind:scroll="tabsScroll">
     <view wx:for="{{model}}" wx:key="{{index}}">
       <van-tab style="display:left" title="{{item.title}}">
         <view wx:for="{{item.detail}}" wx:key="{{index}}">
@@ -25,7 +27,7 @@
   <van-popup bind:close="updateoderlist" overlay="true" safe-area-inset-top="true" custom-style="bottom:50px;max-height:800rpx" position="bottom" show="{{ showsubmitlist }}" close-on-click-overlay="true">
     <view wx:if="{{showsubmitlist}}" wx:for="{{userorderlist}}" wx:key="{{index}}">
       <van-cell class="ordertitle" title="{{item.name}}" />
-      <van-stepper class="ordernum" value="{{ item.num }}" integer min="0" step="1" data-type ="orderlist" bind:change="onSubmitSlotChange" data-name="{{item.name}}" data-price="{{item.price}}" data-id="{{item.id}}" />
+      <van-stepper class="ordernum" value="{{ item.num }}" integer min="0" step="1" data-type="orderlist" bind:change="onSubmitSlotChange" data-name="{{item.name}}" data-price="{{item.price}}" data-id="{{item.id}}" />
     </view>
   </van-popup>
   <view wx:if="{{showsubmit}}" style="height:90rpx;width:100%;"></view>

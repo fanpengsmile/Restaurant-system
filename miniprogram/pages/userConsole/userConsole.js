@@ -8,7 +8,8 @@ Page({
     pricesum: 0,
     userorderlist: [],
     showsubmitlist: false,
-    submitText: '提交订单',
+    submitText: '购物车',
+    hotCommodShow: true,
     hotCommodity: ['/images/1.jpg', '/images/2.jpg', '/images/3.jpg', '/images/4.jpg', '/images/5.jpg'],
     model: [{
         title: "水果",
@@ -344,7 +345,7 @@ Page({
     this.setData({
       showsubmitlist: false,
       model:model,
-      submitText: '提交订单'
+      submitText: '购物车'
     });
   },
   onSubmitSlotChange:function(e) {
@@ -394,10 +395,27 @@ Page({
       this.setData({
         userorderlist: userorderlist,
         showsubmitlist: true,
-        submitText: '确认提交'
+        submitText: '点击付款'
       })
     }else{
       console.log("daifukuan")
     }
-  }
+  },
+  tabsScroll: function (e){
+    if (e.detail.isFixed) {
+      this.setData({
+        hotCommodShow: false
+      })
+    } else {
+      this.setData({
+        hotCommodShow: true
+      })
+    }
+  },
+  // onPullDownRefresh(){
+  //   wx.stopPullDownRefresh();
+  //   this.setData({
+  //     hotCommodShow: true
+  //   })
+  // }
 })

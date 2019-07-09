@@ -48,7 +48,14 @@ Page({
         avatarUrl: e.detail.userInfo.avatarUrl,
         userInfo: e.detail.userInfo,
         username: e.detail.userInfo.nickName,
-        user: app.userInfo.openid !== "o3ikC5dvBW-FeITuFXcoXoQHirV8" ? true : false
+        userType: app.userInfo.openid === "o3ikC5dvBW-FeITuFXcoXoQHirV8" ? 'adminUser' : "normalUser"
+      });
+      db.collection('bulecoffeeuser').add({
+        data: {
+          avatarUrl: e.detail.userInfo.avatarUrl,
+          userType: "adminUser",
+          userName: e.detail.userInfo.nickName,
+        }
       })
     }
     wx.hideLoading();

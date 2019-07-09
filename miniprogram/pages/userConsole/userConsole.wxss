@@ -24,7 +24,8 @@
 }
 
 .hotCommodity {
-  margin-bottom: 10rpx;
-  margin-left: 35rpx;
-  margin-right: 35rpx;
+  margin-bottom: 40rpx;
+  margin-left: 33rpx;
+  margin-right: 32rpx;
+  height: 350rpx;
 }
