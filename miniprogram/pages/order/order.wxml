@@ -1,7 +1,8 @@
-<van-card
-  num="2"
-  price="2.00"
-  desc="描述信息"
-  title="商品标题"
-  thumb="{{ imageURL }}"
-/>
+<van-tabs style="line-width:20rpx">
+  <van-tab title="正在进行中的订单">
+  <van-cell title="时间" value="{{item.price}}" label="{{item.order}}" />
+    <van-cell-group wx:for="{{ordering}}" wx:key="{{index}}">
+      <van-cell title="{{item.name}}" value="{{item.price}}" label="{{item.order}}" />
+    </van-cell-group>
+  </van-tab>
+</van-tabs>

@@ -37,7 +37,7 @@
 <view wx:if="{{userType === 'adminUser'}}">
 <van-cell title="今日收入" value="{{incomeday}}" />
 <van-cell title="总收入" value="{{incomeall}}" />
-<van-cell title="订单管理" is-link value="点击查看所有订单"/>
+<van-cell catchtap="orderSystem" title="订单管理" is-link value="点击查看所有订单"/>
 <van-cell title="商品管理" is-link value="点击添加删除商品"/>
 <van-cell wx:if="{{showallorder}}" catchtap="showallorder" title="所有订单" is-link value="点击查看" />
 <van-cell wx:if="{{!showallorder}}" catchtap="hideallorder" title="所有订单" is-link value="查看所有" arrow-direction="down" />

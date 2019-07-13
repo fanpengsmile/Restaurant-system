@@ -5,7 +5,38 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    ordering:[{
+      name: "西瓜，南瓜，橘子 ...",
+      price: 124,
+      orser: `西瓜 x3   12yuan
+       nan瓜 x3   12yuan
+       bolu x3   12yuan
+       ziwei x3   12yuan`
+    },
+    {
+      name: "西瓜，南瓜，橘子 ...",
+      price: 124,
+      orser: `西瓜 x3   12yuan
+       nan瓜 x3   12yuan
+       bolu x3   12yuan
+       ziwei x3   12yuan`
+    }],
+    ordered: [{
+      name: "西瓜，南瓜，橘子 ...",
+      price: 124,
+      orser: `西瓜 x3   12yuan
+       nan瓜 x3   12yuan
+       bolu x3   12yuan
+       ziwei x3   12yuan`
+    },
+      {
+        name: "西瓜，南瓜，橘子 ...",
+        price: 124,
+        orser: `西瓜 x3   12yuan
+       nan瓜 x3   12yuan
+       bolu x3   12yuan
+       ziwei x3   12yuan`
+      }]
   },
 
   /**

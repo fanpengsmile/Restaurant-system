@@ -166,6 +166,11 @@ Page({
         allorderdetail: detail,
       })
     }
+  },
+  orderSystem: function(){
+    wx.navigateTo({
+      url: '../../pages/order/order',
+    })
   }
 
 })

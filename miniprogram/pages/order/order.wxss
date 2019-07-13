@@ -1,1 +1,4 @@
 /* pages/order/order.wxss */
+.orderTab {
+  width: 50%
+}
