@@ -1,3 +1,24 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "van-row": "vant-weapp/dist/row/index",
+    "van-col": "vant-weapp/dist/col/index",
+    "van-notice-bar": "vant-weapp/dist/notice-bar/index",
+    "van-picker": "vant-weapp/dist/picker/index",
+    "van-stepper": "vant-weapp/dist/stepper/index",
+    "van-tree-select": "vant-weapp/dist/tree-select/index",
+    "van-submit-bar": "vant-weapp/dist/submit-bar/index",
+    "van-card": "vant-weapp/dist/card/index",
+    "van-tab": "vant-weapp/dist/tab/index",
+    "van-tabs": "vant-weapp/dist/tabs/index",
+    "van-button": "vant-weapp/dist/button/index",
+    "van-popup": "vant-weapp/dist/popup/index",
+    "van-cell": "vant-weapp/dist/cell/index",
+    "van-dialog": "vant-weapp/dist/dialog/index",
+    "van-transition": "vant-weapp/dist/transition/index",
+    "van-switch": "vant-weapp/dist/switch/index",
+    "van-switch-cell": "vant-weapp/dist/switch-cell/index",
+    "van-field": "vant-weapp/dist/field/index",
+    "van-cell-group": "vant-weapp/dist/cell-group/index",
+    "van-toast": "vant-weapp/dist/toast/index"
+  }
 }

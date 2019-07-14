@@ -6,36 +6,68 @@ Page({
    */
   data: {
     ordering:[{
-      name: "西瓜，南瓜，橘子 ...",
-      price: 124,
-      orser: `西瓜 x3   12yuan
-       nan瓜 x3   12yuan
-       bolu x3   12yuan
-       ziwei x3   12yuan`
-    },
-    {
-      name: "西瓜，南瓜，橘子 ...",
-      price: 124,
-      orser: `西瓜 x3   12yuan
-       nan瓜 x3   12yuan
-       bolu x3   12yuan
-       ziwei x3   12yuan`
-    }],
-    ordered: [{
-      name: "西瓜，南瓜，橘子 ...",
-      price: 124,
-      orser: `西瓜 x3   12yuan
-       nan瓜 x3   12yuan
-       bolu x3   12yuan
-       ziwei x3   12yuan`
+      index: "sadfas6546546546",
+      price: 123,
+      number: 1,
+      order: [{
+        name:"xiagu",
+        num:3
+      },{
+        name:"dangao",
+        num:9
+      },
+        {
+          name: "zhi",
+          num: 8
+        }]
     },
       {
-        name: "西瓜，南瓜，橘子 ...",
-        price: 124,
-        orser: `西瓜 x3   12yuan
-       nan瓜 x3   12yuan
-       bolu x3   12yuan
-       ziwei x3   12yuan`
+        index: "sadfas6546546546",
+        price: 14,
+        number:2,
+        order: [{
+          name: "xiagu",
+          num: 3
+        }, {
+          name: "dangao",
+          num: 8
+        },
+        {
+          name: "zhi",
+          num: 8
+        }]
+      }],
+    ordered: [{
+      index: "sadfas6546546546",
+      price: 999,
+      number: 7,
+      order: [{
+        name: "xiagu",
+        num: 3
+      }, {
+        name: "dangao",
+        num: 8
+      },
+      {
+        name: "zhi",
+        num: 5
+      }]
+    },
+      {
+        index: "sadfas6546546546",
+        price: 888,
+        number: 9,
+        order: [{
+          name: "xu",
+          num: 3
+        }, {
+          name: "dangao",
+          num: 8
+        },
+        {
+          name: "zhi",
+          num: 1
+        }]
       }]
   },
 
@@ -93,5 +125,24 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  closeOrder: function (e) {
+    let index = e.target.dataset.index;
+    let ordering = this.data.ordering;
+    let ordered = this.data.ordered;
+    for (let i = 0; i < ordering.length; i++){
+      if(index === ordering[i].index) {
+        ordered.unshift(ordering[i]);
+        ordering.splice(i,1);
+        break;
+      }
+    }
+    this.setData({
+      ordering: ordering,
+      ordered: ordered
+    })
+  },
+  tabsScroll:function(e) {
+    console.log(e)
   }
 })

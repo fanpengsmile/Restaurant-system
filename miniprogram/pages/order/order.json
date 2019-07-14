@@ -14,6 +14,8 @@
     "van-popup": "vant-weapp/dist/popup/index",
     "van-cell": "vant-weapp/dist/cell/index",
     "van-dialog": "vant-weapp/dist/dialog/index",
-    "van-transition": "vant-weapp/dist/transition/index"
+    "van-transition": "vant-weapp/dist/transition/index",
+    "van-switch": "vant-weapp/dist/switch/index",
+    "van-switch-cell": "vant-weapp/dist/switch-cell/index"
   }
 }

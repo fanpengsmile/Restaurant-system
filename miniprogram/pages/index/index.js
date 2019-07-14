@@ -171,6 +171,11 @@ Page({
     wx.navigateTo({
       url: '../../pages/order/order',
     })
+  },
+  orderDeve: function () {
+    wx.navigateTo({
+      url: '../../pages/commodity/commodity',
+    })
   }
 
 })

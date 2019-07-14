@@ -288,23 +288,21 @@ Page({
   onSlotChange: function(e) {
     let model = this.data.model;
     let peiceNum = 0;
-    for (let i=0;i<model.length;i++){
-      for (let j = 0;j<model[i].detail.length;j++){
+    for (let i = 0; i < model.length; i++) {
+      for (let j = 0; j < model[i].detail.length; j++) {
         let mod = model[i].detail[j];
         if (mod.id === e.target.dataset.id) {
           mod.num = e.detail;
         }
-        if (e.detail > 0) {
-          peiceNum += mod.num * mod.price;
-        }
+        peiceNum += mod.num * mod.price;
       }
     }
-    if (peiceNum >0) {
+    if (peiceNum > 0) {
       this.setData({
         showsubmit: true,
         pricesum: peiceNum
       })
-    }else{
+    } else {
       this.setData({
         showsubmit: false
       })
@@ -325,11 +323,11 @@ Page({
     for (let i = 0; i < model.length; i++) {
       for (let j = 0; j < model[i].detail.length; j++) {
         let mod = model[i].detail[j];
-        if (orderList.length === 0){
+        if (orderList.length === 0) {
           mod.num = 0;
         } else {
           let flag = false;
-          for (let k = 0; k < orderList.length;k++){
+          for (let k = 0; k < orderList.length; k++) {
             if (orderList[k].id === mod.id) {
               mod.num = orderList[k].num;
               flag = true;
@@ -344,22 +342,22 @@ Page({
     }
     this.setData({
       showsubmitlist: false,
-      model:model,
+      model: model,
       submitText: '购物车'
     });
   },
-  onSubmitSlotChange:function(e) {
+  onSubmitSlotChange: function(e) {
     let orderList = this.data.userorderlist;
     let sum = 0;
-    for (let i = orderList.length-1; i >=0; i--) {
-        if (orderList[i].id === e.target.dataset.id){
-          if (e.detail === 0) {
-            orderList.splice(i, 1);
-          } else {
-            orderList[i].num = e.detail;
-          }
-          break;
+    for (let i = orderList.length - 1; i >= 0; i--) {
+      if (orderList[i].id === e.target.dataset.id) {
+        if (e.detail === 0) {
+          orderList.splice(i, 1);
+        } else {
+          orderList[i].num = e.detail;
         }
+        break;
+      }
     }
     for (let i = orderList.length - 1; i >= 0; i--) {
       sum += orderList[i].num * orderList[i].price
@@ -370,13 +368,13 @@ Page({
       })
       this.updateoderlist();
     }
-  this.setData({
-    userorderlist: orderList,
-    pricesum: sum
-  })
+    this.setData({
+      userorderlist: orderList,
+      pricesum: sum
+    })
   },
   onSubmit: function(e) {
-    if (!this.data.showsubmitlist){
+    if (!this.data.showsubmitlist) {
       let userorderlist = [];
       let model = this.data.model;
       for (let i = 0; i < model.length; i++) {
@@ -397,11 +395,11 @@ Page({
         showsubmitlist: true,
         submitText: '点击付款'
       })
-    }else{
+    } else {
       console.log("daifukuan")
     }
   },
-  tabsScroll: function (e){
+  tabsScroll: function(e) {
     if (e.detail.isFixed) {
       this.setData({
         hotCommodShow: false
