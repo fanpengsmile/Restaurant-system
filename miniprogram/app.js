@@ -16,7 +16,7 @@ App({
     }).then(res => {
       const app = getApp();
       app.userInfo = res.result;
-    })
+    });
     this.globalData = {}
   }
 })

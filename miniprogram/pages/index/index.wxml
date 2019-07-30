@@ -5,7 +5,7 @@
   <text wx:if="{{userName}}" style="color:#666">{{userName}}</text>
   <van-button wx:if="{{!userName}}" plain type="danger" size="mini" open-type="getUserInfo" bindgetuserinfo="onGetUserInfo">登录</van-button>
 </view>
-<view wx:if="{{userType === 'normalUser'}}">
+<view wx:if="{{userType === 'normal'}}">
   <view wx:if="{{userName}}">
     <van-cell title="我的积分" value="{{integral }}" />
     <van-cell wx:if="{{showorder}}" catchtap="showorder" title="我的订单" is-link value="点击查看" />

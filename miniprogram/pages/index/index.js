@@ -1,6 +1,5 @@
 //index.js
 import Dialog from 'vant-weapp/dist/dialog/dialog';
-const app = getApp()
 const db = wx.cloud.database();
 Page({
   data: {
@@ -25,13 +24,17 @@ Page({
   },
 
   onLoad: function() {
-    db.collection('bulecoffeeuser').where({
-      _openid: app.userInfo._openid
-    }).get().then(res => {
+    const app = getApp();
+    wx.cloud.callFunction({
+      name: 'requestSever',
+      data:{
+        userid: app.userInfo.openid
+      }
+    }).then(res => {
+      let user = JSON.parse(res.result);
       this.setData({
-        avatarUrl: res.data[0].avatarUrl,
-        userType: res.data[0].userType,
-        userName: res.data[0].userName
+        userType: user[0].user_type,
+        userName: user[0].user_name
       });
     }).catch(err => {
       console.log(err)
@@ -50,12 +53,21 @@ Page({
         username: e.detail.userInfo.nickName,
         userType: app.userInfo.openid === "o3ikC5dvBW-FeITuFXcoXoQHirV8" ? 'adminUser' : "normalUser"
       });
-      db.collection('bulecoffeeuser').add({
+      wx.cloud.callFunction({
+        name: 'setUser',
         data: {
-          avatarUrl: e.detail.userInfo.avatarUrl,
-          userType: "adminUser",
-          userName: e.detail.userInfo.nickName,
+          userid: app.userInfo.openid,
+          username: e.detail.userInfo.nickName,
+          usertype: "normalUser"
         }
+      }).then(res => {
+        let user = JSON.parse(res.result);
+        this.setData({
+          userType: user[0].user_type,
+          userName: user[0].user_name
+        });
+      }).catch(err => {
+        console.log(err)
       })
     }
     wx.hideLoading();
