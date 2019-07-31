@@ -7,7 +7,7 @@ cloud.init()
 exports.main = async (event, context) => {
   // const wxContext = cloud.getWXContext()
 
-  return rp('http://47.111.152.147:8080/api/setUser?_openid=' + event.userid + '&user_name='+event.username+'&user_type='+event.usertype).then(res => {
+  return rp('http://47.111.152.147:8080/api/setUser?_openid=' + event.userid + '&user_name='+event.username+'&user_type='+event.usertype+'&user_img='+event.userimg).then(res => {
     return res;
   }).catch(err => {
     console.log(err);

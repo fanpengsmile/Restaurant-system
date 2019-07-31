@@ -1,6 +1,6 @@
 // pages/commodity/commodity.js
 import Toast from 'vant-weapp/dist/toast/toast';
-let name, price, desc, label, editId;
+let name, price, desc, label, editId, base64, type, inter;
 Page({
 
   /**
@@ -304,7 +304,48 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
-
+    
+  },
+  confirmCommod : function(){
+    wx.cloud.callFunction({
+      name: 'inserModel',
+      data:{
+        id: (new Date()).getTime(),
+        name: name,
+        price:price,
+        des: desc,
+        label: label,
+        integral: inter,
+        img: base64
+      }
+    }).then(res => {
+      wx.showToast({
+        title: '添加成功',
+      })
+    }).catch(err => {
+      wx.showToast({
+        title: '添加失败',
+      })
+    })
+  },
+  selectImg: function() {
+    let self = this;
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success(res) {
+        // tempFilePath可以作为img标签的src属性显示图片
+        const tempFilePaths = res.tempFilePaths;
+        wx.getFileSystemManager().readFile({
+          filePath: tempFilePaths[0], //选择图片返回的相对路径
+          encoding: 'base64', //编码格式
+          success: res => { //成功的回调
+            base64 = 'data:image/png;base64,' + res.data;
+          }
+        })
+      }
+    })
   },
   editCommod: function(e) {
     editId = e.currentTarget.dataset.id;
@@ -343,6 +384,9 @@ Page({
   getName: function(e) {
     name = e.detail
   },
+  getInter: function(e){
+    inter = e.detail;
+  },
   getPrice: function(e) {
     if (this.isNumber(e.detail)){
       price = parseFloat(e.detail)
@@ -352,6 +396,9 @@ Page({
   },
   getLabel: function(e) {
     label = e.detail
+  },
+  getType: function (e) {
+    type = e.detail
   },
   getDesc: function(e) {
     desc = e.detail

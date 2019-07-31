@@ -19,7 +19,10 @@
       </van-field>
       <van-field bind:input="getLabel"  value="{{ label }}" center clearable label="标签" placeholder="请输入商品标签" use-button-slot>
       </van-field>
-      <van-field bind:input="getLabel"  value="{{ type }}" center clearable label="分类" placeholder="请输入商品分类" use-button-slot>
+      <van-field bind:input="getInter" type="number"   value="{{ integral }}" center clearable label="积分" placeholder="请输入商品积分" use-button-slot>
+      </van-field>
+      <van-field bind:input="getType"  value="{{ type }}" center clearable label="分类" placeholder="请输入商品分类" use-button-slot>
+      <van-button data-name='{{ img }}' slot="button" size="small" type="primary" catchtap="selectImg">选择图片</van-button>
       </van-field>
       <van-field bind:input="getDesc"  value="{{ desc }}" center clearable label="详情" placeholder="请输入商品详情" use-button-slot>
         <van-button data-name='{{ name }}' slot="button" size="small" type="primary" catchtap="confirmCommod">确认添加</van-button>

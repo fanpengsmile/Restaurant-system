@@ -32,16 +32,20 @@ Page({
       }
     }).then(res => {
       let user = JSON.parse(res.result);
-      this.setData({
-        userType: user[0].user_type,
-        userName: user[0].user_name
-      });
+      if (user.length >0){
+        this.setData({
+          userType: user[0].user_type,
+          userName: user[0].user_name,
+          avatarUrl: user[0].user_img
+        });
+      }
     }).catch(err => {
       console.log(err)
     })
   },
 
   onGetUserInfo: function(e) {
+    const app = getApp();
     wx.showLoading({
       title: 'Loading',
     });
@@ -58,13 +62,15 @@ Page({
         data: {
           userid: app.userInfo.openid,
           username: e.detail.userInfo.nickName,
-          usertype: "normalUser"
+          usertype: "adminUser",
+          userimg: e.detail.userInfo.avatarUrl
         }
       }).then(res => {
         let user = JSON.parse(res.result);
         this.setData({
           userType: user[0].user_type,
-          userName: user[0].user_name
+          userName: user[0].user_name,
+          avatarUrl: e.detail.userInfo.avatarUrl,
         });
       }).catch(err => {
         console.log(err)
