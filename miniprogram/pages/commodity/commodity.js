@@ -307,6 +307,9 @@ Page({
     
   },
   confirmCommod : function(){
+    wx.showLoading({
+      title: 'Loading',
+    });
     wx.cloud.callFunction({
       name: 'inserModel',
       data:{
@@ -316,16 +319,19 @@ Page({
         des: desc,
         label: label,
         integral: inter,
-        img: base64
+        img: base64,
+        type: type
       }
     }).then(res => {
       wx.showToast({
         title: '添加成功',
-      })
+      });
+      wx.hideLoading();
     }).catch(err => {
       wx.showToast({
         title: '添加失败',
-      })
+      });
+      wx.hideLoading();
     })
   },
   selectImg: function() {

@@ -24,6 +24,9 @@ Page({
   },
 
   onLoad: function() {
+    wx.showLoading({
+      title: 'Loading',
+    });
     const app = getApp();
     wx.cloud.callFunction({
       name: 'requestSever',
@@ -39,7 +42,9 @@ Page({
           avatarUrl: user[0].user_img
         });
       }
+      wx.hideLoading();
     }).catch(err => {
+      wx.hideLoading();
       console.log(err)
     })
   },
