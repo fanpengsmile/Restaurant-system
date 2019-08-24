@@ -10,253 +10,82 @@ Page({
     showsubmitlist: false,
     submitText: '购物车',
     hotCommodShow: true,
-    hotCommodity: ['/images/1.jpg', '/images/2.jpg', '/images/3.jpg', '/images/4.jpg', '/images/5.jpg'],
-    model: [{
-        title: "水果",
-        detail: [{
-            id: "465",
-            image: "/images/a.png",
-            tag: "新品",
-            price: 43,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "橘子"
-          },
-          {
-            id: "46da567456fda5",
-            image: "/images/a.png",
-            tag: "新品",
-            price: 828,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "西瓜"
-          },
-          {
-            id: "4rewer65",
-            image: "/images/a.png",
-            tag: "新品",
-            price: 145,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "葡萄"
-          },
-          {
-            id: "4eerwwerwr65",
-            image: "/images/a.png",
-            tag: "新品",
-            price: 145,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "葡萄"
-          }, {
-            id: "4etrethgr65",
-            image: "/images/a.png",
-            tag: "新品",
-            price: 145,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "葡萄"
-          }, {
-            id: "4ery6765",
-            image: "/images/a.png",
-            tag: "新品",
-            price: 145,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "葡萄"
-          }
-        ]
-      }, {
-        title: "零食",
-        detail: [{
-            id: "462525",
-            image: "/images/a.png",
-            tag: "新品",
-            price: 43,
-            desc: '多吃水果心情好！！！！！！',
-            num: 0,
-            name: "坚果"
-          },
-          {
-            id: "46da27527fda5",
-            image: "/images/b.png",
-            tag: "新品",
-            price: 828,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "火腿肠"
-          },
-          {
-            id: "4e5275275r65",
-            image: "/images/c.png",
-            tag: "新品",
-            price: 145,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "奶茶"
-          }, {
-            id: "4e52we75275r65",
-            image: "/images/c.png",
-            tag: "新品",
-            price: 145,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "奶茶"
-          }, {
-            id: "4e52e75275r65",
-            image: "/images/c.png",
-            tag: "新品",
-            price: 145,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "奶茶"
-          }, {
-            id: "4e75r65",
-            image: "/images/c.png",
-            tag: "新品",
-            price: 145,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "奶茶"
-          }, {
-            id: "4",
-            image: "/images/c.png",
-            tag: "新品",
-            price: 145,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "奶茶"
-          }
-        ]
-      }, {
-        title: "饮料",
-        detail: [{
-            id: "46s2525",
-            image: "/images/a.png",
-            tag: "新品",
-            price: 43,
-            desc: '多吃水果心情好！！！！！！',
-            num: 0,
-            name: "可乐"
-          },
-          {
-            id: "4455d27fda5",
-            image: "/images/b.png",
-            tag: "新品",
-            price: 28,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "芬达"
-          },
-          {
-            id: "4eqqq5r65",
-            image: "/images/c.png",
-            tag: "新品",
-            price: 14,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "王老吉"
-          }
-        ]
-      }, {
-        title: "啤酒",
-        detail: [{
-            id: "45",
-            image: "/images/a.png",
-            tag: "新品",
-            price: 43,
-            desc: '多吃水果心情好！！！！！！',
-            num: 0,
-            name: "青岛"
-          },
-          {
-            id: "445a5",
-            image: "/images/b.png",
-            tag: "新品",
-            price: 28,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "雪花"
-          },
-          {
-            id: "4eqqq5",
-            image: "/images/c.png",
-            tag: "新品",
-            price: 14,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "乌苏"
-          }
-        ]
-      },
-      {
-        title: "烤肉",
-        detail: [{
-            id: "4rty5",
-            image: "/images/a.png",
-            tag: "新品",
-            price: 43,
-            desc: '多吃水果心情好！！！！！！',
-            num: 0,
-            name: "面筋"
-          },
-          {
-            id: "4455de",
-            image: "/images/b.png",
-            tag: "新品",
-            price: 28,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "香肠"
-          },
-          {
-            id: "sss5",
-            image: "/images/c.png",
-            tag: "新品",
-            price: 14,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "茄子"
-          }
-        ]
-      },
-      {
-        title: "其他",
-        detail: [{
-            id: "f5",
-            image: "/images/a.png",
-            tag: "新品",
-            price: 43,
-            desc: '多吃水果心情好！！！！！！',
-            num: 0,
-            name: "KTV"
-          },
-          {
-            id: "448",
-            image: "/images/b.png",
-            tag: "新品",
-            price: 28,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "台球"
-          },
-          {
-            id: "4aaa5",
-            image: "/images/c.png",
-            tag: "新品",
-            price: 14,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "XBOX"
-          }
-        ]
-      }
-    ]
+    hotCommodity: ['/images/1.jpg', '/images/2.jpg', '/images/3.jpg', '/images/4.jpg', '/images/5.jpg']
   },
 
   onLoad: function(options) {
+    wx.showLoading({
+      title: 'Loading...',
+    });
+    wx.cloud.callFunction({
+      name: 'getAllModel'
+    }).then(res => {
+      wx.hideLoading();
+      let model = JSON.parse(res.result);
+      let models = [];
+      for(let i = 0 ; i < model.length; i ++) {
+        let modeli = model[i];
+        if (i === 0) {
+          models.push({
+            title: modeli.type,
+            detail: [{
+              id: modeli._id,
+              image: "http://" + modeli.image_url,
+              tag: modeli.label,
+              price: modeli.price,
+              desc: modeli.description,
+              num: 0,
+              name: modeli.name
+            }]
+          })
+        } else {
+          for (let j = 0; j < models.length; j++) {
+            if (modeli.type === models[j].title) {
+              let p = {
+                id: modeli._id,
+                image: "http://" + modeli.image_url,
+                tag: modeli.label,
+                price: modeli.price,
+                desc: modeli.description,
+                num: 0,
+                name: modeli.name
+              };
+              models[j].detail.push(p);
+              break;
+            }
+            if (j === models.length - 1 && modeli.type !== models[j].title) {
+              models.push({
+                title: modeli.type,
+                detail: [{
+                  id: modeli._id,
+                  image: "http://" + modeli.image_url,
+                  tag: modeli.label,
+                  price: modeli.price,
+                  desc: modeli.description,
+                  num: 0,
+                  name: modeli.name
+                }]
+              });
+              break;
+            }
+          }
+        }
+      }
+      const app = getApp();
+      app.models = models;
+      this.setData({
+        model: models
+      })
+    }).catch(err => {
+      wx.hideLoading();
+      console.log(err);
+    });
   },
-  onShow: function() {},
+  onShow: function() {
+    this.setData({
+      model: getApp().models
+    })
+  },
   onSlotChange: function(e) {
     let model = this.data.model;
     let peiceNum = 0;
@@ -382,10 +211,4 @@ Page({
       })
     }
   },
-  // onPullDownRefresh(){
-  //   wx.stopPullDownRefresh();
-  //   this.setData({
-  //     hotCommodShow: true
-  //   })
-  // }
 })

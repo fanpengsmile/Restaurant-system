@@ -7,325 +7,143 @@ Page({
    * 页面的初始数据
    */
   data: {
-    edit: false,
-    model: [{
-        title: "水果",
-        detail: [{
-            id: "465",
-            image: "/images/a.png",
-            tag: "新品",
-            price: 43,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "橘子"
-          },
-          {
-            id: "46da567456fda5",
-            image: "/images/a.png",
-            tag: "新品",
-            price: 828,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "西瓜"
-          },
-          {
-            id: "4rewer65",
-            image: "/images/a.png",
-            tag: "新品",
-            price: 145,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "葡萄"
-          },
-          {
-            id: "4eerwwerwr65",
-            image: "/images/a.png",
-            tag: "新品",
-            price: 145,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "葡萄"
-          }, {
-            id: "4etrethgr65",
-            image: "/images/a.png",
-            tag: "新品",
-            price: 145,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "葡萄"
-          }, {
-            id: "4ery6765",
-            image: "/images/a.png",
-            tag: "新品",
-            price: 145,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "葡萄"
-          }
-        ]
-      }, {
-        title: "零食",
-        detail: [{
-            id: "462525",
-            image: "/images/a.png",
-            tag: "新品",
-            price: 43,
-            desc: '多吃水果心情好！！！！！！',
-            num: 0,
-            name: "坚果"
-          },
-          {
-            id: "46da27527fda5",
-            image: "/images/b.png",
-            tag: "新品",
-            price: 828,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "火腿肠"
-          },
-          {
-            id: "4e5275275r65",
-            image: "/images/c.png",
-            tag: "新品",
-            price: 145,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "奶茶"
-          }, {
-            id: "4e52we75275r65",
-            image: "/images/c.png",
-            tag: "新品",
-            price: 145,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "奶茶"
-          }, {
-            id: "4e52e75275r65",
-            image: "/images/c.png",
-            tag: "新品",
-            price: 145,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "奶茶"
-          }, {
-            id: "4e75r65",
-            image: "/images/c.png",
-            tag: "新品",
-            price: 145,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "奶茶"
-          }, {
-            id: "4",
-            image: "/images/c.png",
-            tag: "新品",
-            price: 145,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "奶茶"
-          }
-        ]
-      }, {
-        title: "饮料",
-        detail: [{
-            id: "46s2525",
-            image: "/images/a.png",
-            tag: "新品",
-            price: 43,
-            desc: '多吃水果心情好！！！！！！',
-            num: 0,
-            name: "可乐"
-          },
-          {
-            id: "4455d27fda5",
-            image: "/images/b.png",
-            tag: "新品",
-            price: 28,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "芬达"
-          },
-          {
-            id: "4eqqq5r65",
-            image: "/images/c.png",
-            tag: "新品",
-            price: 14,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "王老吉"
-          }
-        ]
-      }, {
-        title: "啤酒",
-        detail: [{
-            id: "45",
-            image: "/images/a.png",
-            tag: "新品",
-            price: 43,
-            desc: '多吃水果心情好！！！！！！',
-            num: 0,
-            name: "青岛"
-          },
-          {
-            id: "445a5",
-            image: "/images/b.png",
-            tag: "新品",
-            price: 28,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "雪花"
-          },
-          {
-            id: "4eqqq5",
-            image: "/images/c.png",
-            tag: "新品",
-            price: 14,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "乌苏"
-          }
-        ]
-      },
-      {
-        title: "烤肉",
-        detail: [{
-            id: "4rty5",
-            image: "/images/a.png",
-            tag: "新品",
-            price: 43,
-            desc: '多吃水果心情好！！！！！！',
-            num: 0,
-            name: "面筋"
-          },
-          {
-            id: "4455de",
-            image: "/images/b.png",
-            tag: "新品",
-            price: 28,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "香肠"
-          },
-          {
-            id: "sss5",
-            image: "/images/c.png",
-            tag: "新品",
-            price: 14,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "茄子"
-          }
-        ]
-      },
-      {
-        title: "其他",
-        detail: [{
-            id: "f5",
-            image: "/images/a.png",
-            tag: "新品",
-            price: 43,
-            desc: '多吃水果心情好！！！！！！',
-            num: 0,
-            name: "KTV"
-          },
-          {
-            id: "448",
-            image: "/images/b.png",
-            tag: "新品",
-            price: 28,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "台球"
-          },
-          {
-            id: "4aaa5",
-            image: "/images/c.png",
-            tag: "新品",
-            price: 14,
-            desc: '多吃水果心情好！！！！！！！！！！！',
-            num: 0,
-            name: "XBOX"
-          }
-        ]
-      }
-    ]
+    edit: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
-
+  onLoad: function (options) {
+    const app = getApp();
+    this.setData({
+      model: app.models
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
-    
+  onShareAppMessage: function () {
+
   },
-  confirmCommod : function(){
+  confirmCommod: function () {
     wx.showLoading({
       title: 'Loading',
     });
     wx.cloud.callFunction({
       name: 'inserModel',
-      data:{
+      data: {
         id: (new Date()).getTime(),
-        name: name,
-        price:price,
-        des: desc,
-        label: label,
-        integral: inter,
+        name: encodeURI(name),
+        price: price,
+        des: encodeURI(desc),
+        label: encodeURI(label),
+        integral: parseFloat(inter),
         img: base64,
-        type: type
+        type: encodeURI(type)
       }
     }).then(res => {
       wx.showToast({
         title: '添加成功',
       });
+
+      let model = JSON.parse(res.result);
+      let models = [];
+      for (let i = 0; i < model.length; i++) {
+        let modeli = model[i];
+        if (i === 0) {
+          models.push({
+            title: modeli.type,
+            detail: [{
+              id: modeli._id,
+              image: "http://" + modeli.image_url,
+              tag: modeli.label,
+              price: modeli.price,
+              desc: modeli.description,
+              num: 0,
+              name: modeli.name
+            }]
+          })
+        } else {
+          for (let j = 0; j < models.length; j++) {
+            if (modeli.type === models[j].title) {
+              let p = {
+                id: modeli._id,
+                image: "http://" + modeli.image_url,
+                tag: modeli.label,
+                price: modeli.price,
+                desc: modeli.description,
+                num: 0,
+                name: modeli.name
+              };
+              models[j].detail.push(p);
+              break;
+            }
+            if (j === models.length - 1 && modeli.type !== models[j].title) {
+              models.push({
+                title: modeli.type,
+                detail: [{
+                  id: modeli._id,
+                  image: "http://" + modeli.image_url,
+                  tag: modeli.label,
+                  price: modeli.price,
+                  desc: modeli.description,
+                  num: 0,
+                  name: modeli.name
+                }]
+              });
+              break;
+            }
+          }
+        }
+      }
+      const app = getApp();
+      app.models = models;
+      this.setData({
+        model: models
+      })
       wx.hideLoading();
     }).catch(err => {
       wx.showToast({
@@ -334,32 +152,77 @@ Page({
       wx.hideLoading();
     })
   },
-  selectImg: function() {
+  selectImg: function () {
     let self = this;
+    const ctx = wx.createCanvasContext('myCanvas');
     wx.chooseImage({
       count: 1,
-      sizeType: ['original', 'compressed'],
+      sizeType: ['compressed'],
       sourceType: ['album', 'camera'],
       success(res) {
         // tempFilePath可以作为img标签的src属性显示图片
         const tempFilePaths = res.tempFilePaths;
-        wx.getFileSystemManager().readFile({
-          filePath: tempFilePaths[0], //选择图片返回的相对路径
-          encoding: 'base64', //编码格式
-          success: res => { //成功的回调
-            base64 = 'data:image/png;base64,' + res.data;
-          }
-        })
+        ctx.drawImage(tempFilePaths[0], 0, 0, 200, 200); //将图片填充在canvas上
+        ctx.draw();
+        setTimeout(function () {
+          wx.canvasToTempFilePath({
+            canvasId: 'myCanvas',
+            success: function (res) {
+              console.log(res.tempFilePath);
+              base64 = 'data:image/png;base64,' + wx.getFileSystemManager().readFileSync(res.tempFilePath, "base64");
+            },
+            fail: function (error) {
+              console.log(error)
+            }
+          })
+        }, 100);
+        base64 = 'data:image/png;base64,' + wx.getFileSystemManager().readFileSync(tempFilePaths[0], "base64");
       }
     })
   },
-  editCommod: function(e) {
+  deleteCommod: function (e) {
+    wx.showLoading({
+      title: 'Loading',
+    });
+    wx.cloud.callFunction({
+      name: 'deleteModel',
+      data: {
+        id: e.currentTarget.dataset.id
+      }
+    }).then(res => {
+      let model = this.data.model;
+      let flag = false;
+      for (let i = 0 ; i < model.length; i ++) {
+        if (flag){
+          break;
+        }
+        let detail = model[i].detail;
+        for (let j = 0 ; j < detail.length; j ++) {
+          if (detail.id === e.currentTarget.dataset.id) {
+            detail.splice(j,1);
+            flag=true;
+            break;
+          }
+        }
+      }
+      wx.showToast({
+        title: '删除成功',
+      });
+      wx.hideLoading();
+    }).catch(err => {
+      wx.showToast({
+        title: '删除失败',
+      });
+      wx.hideLoading();
+    })
+  },
+  editCommod: function (e) {
     editId = e.currentTarget.dataset.id;
     this.setData({
       edit: true
     })
   },
-  confirmEdit: function(e) {
+  confirmEdit: function (e) {
     if (this.isNumber(price)) {
       let model = this.data.model;
       let flag = false;
@@ -387,34 +250,38 @@ Page({
       Toast.fail('价格需要为数字');
     }
   },
-  getName: function(e) {
+  getName: function (e) {
     name = e.detail
   },
-  getInter: function(e){
-    inter = e.detail;
-  },
-  getPrice: function(e) {
-    if (this.isNumber(e.detail)){
-      price = parseFloat(e.detail)
-    }else {
+  getInter: function (e) {
+    if (this.isNumber(e.detail)) {
+      inter = parseFloat(e.detail)
+    } else {
       Toast.fail('价格需要为数字');
     }
   },
-  getLabel: function(e) {
+  getPrice: function (e) {
+    if (this.isNumber(e.detail)) {
+      price = parseFloat(e.detail) * 100
+    } else {
+      Toast.fail('价格需要为数字');
+    }
+  },
+  getLabel: function (e) {
     label = e.detail
   },
   getType: function (e) {
     type = e.detail
   },
-  getDesc: function(e) {
+  getDesc: function (e) {
     desc = e.detail
   },
-  onEditClose: function() {
+  onEditClose: function () {
     this.setData({
       edit: false
     })
   },
-  isNumber: function(val) {
+  isNumber: function (val) {
     var regPos = /^\d+(\.\d+)?$/; //非负浮点数
     var regNeg = /^(-(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*)))$/; //负浮点数
     if (regPos.test(val) || regNeg.test(val)) {

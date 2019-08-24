@@ -3,8 +3,9 @@
   <van-tab title="修改商品">
     <view wx:for="{{model}}" wx:key="{{index}}" catchtap='editCommod'>
       <view wx:for="{{item.detail}}" wx:key="{{index}}">
-        <van-card tag="{{item.tag}}" price="{{item.price}}" desc="{{item.desc}}" title="{{item.name}}" thumb="{{ item.image }}">
+        <van-card tag="{{item.tag}}" price="{{item.price/100}}" desc="{{item.desc}}" title="{{item.name}}" thumb="{{ item.image }}">
           <view slot="footer">
+            <van-button size="small" catchtap='deleteCommod' plain type="primary" data-id='{{item.id}}'>删除商品</van-button>
             <van-button size="small" catchtap='editCommod' plain type="primary" data-id='{{item.id}}'>编辑商品</van-button>
           </view>
         </van-card>
@@ -19,7 +20,7 @@
       </van-field>
       <van-field bind:input="getLabel"  value="{{ label }}" center clearable label="标签" placeholder="请输入商品标签" use-button-slot>
       </van-field>
-      <van-field bind:input="getInter" type="number"   value="{{ integral }}" center clearable label="积分" placeholder="请输入商品积分" use-button-slot>
+      <van-field bind:input="getInter" type="number"  value="{{ integral }}" center clearable label="积分" placeholder="请输入商品积分" use-button-slot>
       </van-field>
       <van-field bind:input="getType"  value="{{ type }}" center clearable label="分类" placeholder="请输入商品分类" use-button-slot>
       <van-button data-name='{{ img }}' slot="button" size="small" type="primary" catchtap="selectImg">选择图片</van-button>
@@ -27,8 +28,10 @@
       <van-field bind:input="getDesc"  value="{{ desc }}" center clearable label="详情" placeholder="请输入商品详情" use-button-slot>
         <van-button data-name='{{ name }}' slot="button" size="small" type="primary" catchtap="confirmCommod">确认添加</van-button>
       </van-field>
+      <canvas style="width: 200px; height: 200px;" canvas-id="myCanvas"></canvas>
   </van-tab>
 </van-tabs>
+
 
 <view>
   <van-popup overlay="true" safe-area-inset-top="true" show="{{ edit }}" position="bottom" bind:close="onEditClose" custom-style="max-height:800rpx">

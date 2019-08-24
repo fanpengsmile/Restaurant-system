@@ -1,0 +1,16 @@
+{
+  "name": "deleteModel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "require": "^2.4.20",
+    "require-promise": "^1.0.1",
+    "wx-server-sdk": "latest"
+  }
+}
