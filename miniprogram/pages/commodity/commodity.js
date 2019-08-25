@@ -1,6 +1,8 @@
 // pages/commodity/commodity.js
 import Toast from 'vant-weapp/dist/toast/toast';
+import Dialog from 'vant-weapp/dist/dialog/dialog';
 let name, price, desc, label, editId, base64, type, inter;
+const app = getApp();
 Page({
 
   /**
@@ -139,7 +141,6 @@ Page({
           }
         }
       }
-      const app = getApp();
       app.models = models;
       this.setData({
         model: models
@@ -181,40 +182,48 @@ Page({
     })
   },
   deleteCommod: function (e) {
-    wx.showLoading({
-      title: 'Loading',
-    });
-    wx.cloud.callFunction({
-      name: 'deleteModel',
-      data: {
-        id: e.currentTarget.dataset.id
-      }
-    }).then(res => {
-      let model = this.data.model;
-      let flag = false;
-      for (let i = 0 ; i < model.length; i ++) {
-        if (flag){
-          break;
+    let self = this;
+    Dialog.confirm({
+      title: '确认删除',
+      message: '你确认删除此商品？'
+    }).then(() => {
+      let modelId = e.currentTarget.dataset.id;
+      wx.cloud.callFunction({
+        name: 'deleteModel',
+        data: {
+          id: modelId
         }
-        let detail = model[i].detail;
-        for (let j = 0 ; j < detail.length; j ++) {
-          if (detail.id === e.currentTarget.dataset.id) {
-            detail.splice(j,1);
-            flag=true;
+      }).then(res => {
+        let model = self.data.model;
+        let flag = false;
+        for (let i = 0; i < model.length; i++) {
+          if (flag) {
             break;
           }
+          let detail = model[i].detail;
+          for (let j = 0; j < detail.length; j++) {
+            if (detail[j].id === modelId) {
+              detail.splice(j, 1);
+              flag = true;
+              break;
+            }
+          }
         }
-      }
-      wx.showToast({
-        title: '删除成功',
-      });
-      wx.hideLoading();
-    }).catch(err => {
-      wx.showToast({
-        title: '删除失败',
-      });
-      wx.hideLoading();
-    })
+        self.setData({
+          model: model
+        });
+        app.models = models;
+        wx.showToast({
+          title: '删除成功',
+        });
+      }).catch(err => {
+        wx.showToast({
+          title: '删除成功',
+        });
+      })
+    }).catch(() => {
+      // on cancel
+    });
   },
   editCommod: function (e) {
     editId = e.currentTarget.dataset.id;

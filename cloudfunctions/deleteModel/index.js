@@ -10,6 +10,6 @@ exports.main = async (event, context) => {
   return rp('http://47.111.152.147:8080/api/deleteProduct?_id=' + event.id).then(res => {
     return res;
   }).catch(err => {
-    return err;
+    console.log(err);
   })
 }
