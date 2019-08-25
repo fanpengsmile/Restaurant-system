@@ -1,7 +1,7 @@
 // pages/commodity/commodity.js
 import Toast from 'vant-weapp/dist/toast/toast';
 import Dialog from 'vant-weapp/dist/dialog/dialog';
-let name, price, desc, label, editId, base64, type, inter;
+let name, price, desc, label, editId, base64, type, inter, id;
 const app = getApp();
 Page({
 
@@ -9,7 +9,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    edit: false
+    edit: false,
+    oldName: "",
+    oldPrice: 0,
+    oldLabel:"",
+    oldDes: ""
   },
 
   /**
@@ -226,12 +230,33 @@ Page({
     });
   },
   editCommod: function (e) {
-    editId = e.currentTarget.dataset.id;
+    id = e.currentTarget.dataset.id;
+    let model = this.data.model;
+    let flag = false;
+    for (let i = 0; i < model.length; i++) {
+      if (flag) {
+        break;
+      }
+      for (let j = 0; j < model[i].detail.length; j++) {
+        let com = model[i].detail[j];
+        if (com.id === id) {
+          this.setData({
+            oldName: com.name,
+            oldPrice: com.price/100,
+            oldLabel: com.tag,
+            oldDes: com.desc
+          })
+          flag = true;
+          break;
+        }
+      }
+    }
     this.setData({
       edit: true
     })
   },
   confirmEdit: function (e) {
+    let self = this;
     if (this.isNumber(price)) {
       let model = this.data.model;
       let flag = false;
@@ -241,7 +266,7 @@ Page({
         }
         for (let j = 0; j < model[i].detail.length; j++) {
           let com = model[i].detail[j];
-          if (com.id === editId) {
+          if (com.id === id) {
             com.name = name;
             com.price = price;
             com.desc = desc;
@@ -251,9 +276,22 @@ Page({
           }
         }
       }
-      this.setData({
-        model: model,
-        edit: false
+      wx.callFunction({
+        name: 'updateModel',
+        data: {
+          id: id,
+          name: name,
+          price: price,
+          des: desc,
+          label: label
+        }
+      }).then(res => {
+        self.setData({
+          model: model,
+          edit: false
+        })
+      }).catch(err => {
+        console.log(err);
       })
     } else {
       Toast.fail('价格需要为数字');

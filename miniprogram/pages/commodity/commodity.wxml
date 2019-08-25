@@ -36,13 +36,13 @@
 <view>
   <van-popup overlay="true" safe-area-inset-top="true" show="{{ edit }}" position="bottom" bind:close="onEditClose" custom-style="max-height:800rpx">
     <van-cell-group>
-      <van-field bind:input="getName" center clearable label="商品名" placeholder="请输入商品名称" use-button-slot>
+      <van-field bind:input="getName" center clearable label="商品名" placeholder="{{oldName}}" use-button-slot>
       </van-field>
-      <van-field bind:input="getPrice" type="number"  value="{{ price }}" center clearable label="价格" placeholder="请输入商品价格" use-button-slot>
+      <van-field bind:input="getPrice" type="number"  value="{{ price }}" center clearable label="价格" placeholder="{{oldPrice}}" use-button-slot>
       </van-field>
-      <van-field bind:input="getLabel"  value="{{ label }}" center clearable label="标签" placeholder="请输入商品标签" use-button-slot>
+      <van-field bind:input="getLabel"  value="{{ label }}" center clearable label="标签" placeholder="{{oldLabel}}" use-button-slot>
       </van-field>
-      <van-field bind:input="getDesc"  value="{{ desc }}" center clearable label="详情" placeholder="请输入商品详情" use-button-slot>
+      <van-field bind:input="getDesc"  value="{{ desc }}" center clearable label="详情" placeholder="{{oldDes}}" use-button-slot>
         <van-button data-name='{{ name }}' slot="button" size="small" type="primary" catchtap="confirmEdit">确认修改</van-button>
       </van-field>
     </van-cell-group>
